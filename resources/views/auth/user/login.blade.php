@@ -5,6 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}" />
+
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -59,8 +61,9 @@
                         Because tomorrow become never
                     </p>
                     <p>
-                        <a class="btn btn-border btn-google-login" href="#">
-                            <img src="{{ asset('images/ic_google.svg') }}" class="icon" alt=""> Sign In with
+                        <a class="btn btn-border btn-google-login" href="{{ route('sign-in-google') }}">
+                            <img src="{{ asset('images/ic_google.svg') }}" class="icon" alt=""> Sign In
+                            with
                             Google
                         </a>
                     </p>
