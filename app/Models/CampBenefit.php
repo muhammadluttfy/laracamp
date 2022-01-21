@@ -12,6 +12,7 @@ class CampBenefit extends Model
   use HasFactory;
 
   protected $fillable = [
-    'name'
+    'camp_id',
+    'name',
   ];
 }
