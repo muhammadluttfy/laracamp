@@ -23,14 +23,14 @@
                 </li>
             </ul>
             @auth
-                <div class="d-flex user-logged nav-item dropdown no-arrow ps-4">
+                <div class="d-flex user-logged nav-item dropdown no-arrow">
 
                     <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                         Halo, {{ Auth::user()->name }}
-                        <img src="{{ Auth::user()->avatar }}" class="user-photo" alt="">
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto;">
+                        <img src="{{ Auth::user()->avatar }}" class="rounded-circle user-photo" alt="">
+                        <ul class="dropdown-menu dropdown-menu-navbar" aria-labelledby="dropdownMenuLink">
                             <li>
-                                <a href="#" class="dropdown-item">My Dashboard</a>
+                                <a href="{{ route('dashboard') }}" class="dropdown-item">My Dashboard</a>
                             </li>
                             <li>
                                 <a href="#" class="dropdown-item"
