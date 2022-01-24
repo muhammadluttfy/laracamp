@@ -70,7 +70,8 @@
                             @empty
                                 <tr>
                                     <td colspan="5">
-                                        No Data
+                                        You don't have a course. <a class="text-decoration-none text-success fw-bold"
+                                            href="{{ route('welcome') }}">Order now</a>
                                     </td>
                                 </tr>
                             @endforelse

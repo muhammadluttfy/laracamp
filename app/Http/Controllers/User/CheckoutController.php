@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Camp;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\User\Checkout\Store;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Checkout\AfterCheckout;
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 class CheckoutController extends Controller
@@ -61,6 +63,9 @@ class CheckoutController extends Controller
 
     // create to checkout table
     $checkout = Checkout::create($data);
+
+    // send email
+    Mail::to(Auth::user()->email)->send(new AfterCheckout($checkout));
 
     return redirect(route('checkout.success'));
   }
