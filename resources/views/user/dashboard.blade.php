@@ -33,6 +33,7 @@
                 </div>
             </div>
             <div class="row my-5">
+                @include('components.alert')
                 <div class="table-responsive">
                     <table class="table">
                         <tbody>

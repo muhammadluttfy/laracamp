@@ -7,6 +7,7 @@ use App\Models\Checkout;
 use Illuminate\Http\Request;
 use App\Models\Camp;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\User\Checkout\Store;
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 class CheckoutController extends Controller
@@ -26,8 +27,13 @@ class CheckoutController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function create(Camp $camp)
+  public function create(Camp $camp, Request $request)
   {
+    if ($camp->isRegistered) {
+      $request->session()->flash('error', "You already registered on {$camp->title} camp.");
+      return redirect(route('dashboard'));
+    }
+
     return view('checkout.create', [
       'camp' => $camp,
     ]);
@@ -39,7 +45,7 @@ class CheckoutController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request, Camp $camp)
+  public function store(Store $request, Camp $camp)
   {
     // mapping request data
     $data = $request->all();
