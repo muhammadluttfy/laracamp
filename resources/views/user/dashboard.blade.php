@@ -68,7 +68,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <tr>
+                                <tr class="border-bottom">
                                     <td colspan="5">
                                         You don't have a course. <a class="text-decoration-none text-success fw-bold"
                                             href="{{ route('welcome') }}">Order now</a>
