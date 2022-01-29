@@ -49,4 +49,4 @@ Setelah itu run project dengan mengetikkan :
 
 ## License
 
-File ini bisa digunakan secara open source. Follow instagram saya [@muhammadluttfy](https:instagram.com/muhammadluttfy) untuk bertanya lebih lanjut / sharing sharing atau sebagai bagian dari apresiasimu terhadap project yang saya bangun.
+File ini bisa digunakan secara open source. Follow instagram saya [muhammadluttfy](https:instagram.com/muhammadluttfy) untuk bertanya lebih lanjut / sharing sharing atau sebagai bagian dari apresiasimu terhadap project yang saya bangun.
