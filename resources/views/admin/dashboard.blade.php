@@ -18,7 +18,6 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Register Date</th>
                                 <th scope="col">Paid Status</th>
-                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,22 +25,13 @@
                                 <tr>
                                     <td>{{ $checkout->user->name }}</td>
                                     <td>{{ $checkout->Camp->title }}</td>
-                                    <td>{{ $checkout->Camp->price }}</td>
+                                    <td>{{ $checkout->Camp->price }}K</td>
                                     <td>{{ $checkout->created_at->format('M d Y') }}</td>
                                     <td>
-                                        @if ($checkout->is_paid)
+                                        @if ($checkout->payment_status == 'paid')
                                             <span class="badge rounded-pill bg-success">Paid</span>
                                         @else
                                             <span class="badge rounded-pill bg-warning">Waiting</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if (!$checkout->is_paid)
-                                            <form action="{{ route('admin.checkout.update', $checkout->id) }}"
-                                                method="post">
-                                                @csrf
-                                                <button class="btn btn-primary btn-sm py-2 px-3">Set to Paid</button>
-                                            </form>
                                         @endif
                                     </td>
                                 @empty
