@@ -39,7 +39,7 @@
                         <tbody>
                             @forelse ($checkouts as $checkout)
                                 <tr class="align-middle border-bottom">
-                                    <td width="18%">
+                                    <td width="20%">
                                         <img src="{{ asset('images/item_bootcamp.png') }}" height="120" alt="">
                                     </td>
                                     <td>
@@ -50,14 +50,21 @@
                                             {{ $checkout->created_at->format('M d, Y') }}
                                         </p>
                                     </td>
-                                    <td>
-                                        <strong>${{ $checkout->Camp->price }}</strong>
+                                    <td class="text-center">
+                                        <strong>{{ $checkout->Camp->price }}K</strong>
                                     </td>
-                                    <td>
-                                        @if ($checkout->is_paid)
-                                            <strong class="text-success">Payment Success</strong>
+                                    <td class="text-center">
+                                        @if ($checkout->payment_status == 'waiting')
+                                            <strong class="text-danger">{{ $checkout->payment_status }}</strong>
                                         @else
-                                            <strong class="text-danger">Waiting for Payment</strong>
+                                            <strong class="text-success">{{ $checkout->payment_status }}</strong>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        @if ($checkout->payment_status == 'waiting')
+                                            <a href="{{ $checkout->midtrans_url }}" class="btn btn-primary">Pay Here</a>
+                                        @else
+
                                         @endif
                                     </td>
                                     <td>
