@@ -16,22 +16,24 @@ class User extends Authenticatable
   /**
    * The attributes that are mass assignable.
    *
-   * @var array<int, string>
+   * @var array
    */
   protected $fillable = [
     'name',
     'email',
+    'email_verified_at',
     'password',
     'avatar',
     'occupation',
+    'phone',
+    'address',
     'is_admin',
-    'email_verified_at',
   ];
 
   /**
-   * The attributes that should be hidden for serialization.
+   * The attributes that should be hidden for arrays.
    *
-   * @var array<int, string>
+   * @var array
    */
   protected $hidden = [
     'password',
@@ -39,11 +41,21 @@ class User extends Authenticatable
   ];
 
   /**
-   * The attributes that should be cast.
+   * The attributes that should be cast to native types.
    *
-   * @var array<string, string>
+   * @var array
    */
   protected $casts = [
     'email_verified_at' => 'datetime',
   ];
+
+  /**
+   * Get all of the Checkout for the User
+   *
+   * @return \Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function Checkout(): HasMany
+  {
+    return $this->hasMany(Checkout::class);
+  }
 }
