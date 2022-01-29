@@ -21,11 +21,6 @@ setelah itu masuk ke dalam folder dengan mengetikkan :
 
 ```bash
   cd laracamp
-  composer install
-
-  -> need to update database env
-  php artisan migrate --seed
-  php artisan serve
 ```
 
 Lalu update file project dengan mengetikkan :
@@ -44,7 +39,6 @@ Setelah itu anda perlu membuat dan mengupdate file .env sesuai kebutuhan (sudah 
 
 ```bash
   php artisan migrate --seed
-  php artisan serve
 ```
 
 Setelah itu run project dengan mengetikkan :
